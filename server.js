@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // GitHub配置
-const GITHUB_USERNAME = process.env.GITHUB_USERNAME; // 您的GitHub用户名
+const GITHUB_USERNAME = process.env.GITHUB_USERNAME || 'Cao-Yushu'; // 您的GitHub用户名
 const GITHUB_REPO = 'Password'; // 您的仓库名
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // GitHub Personal Access Token
 const DATA_FILE = 'passwords-data.json';
@@ -136,12 +136,12 @@ app.get('/api/get-password', async (req, res) => {
       });
     }
     
-    console.log(`成功分配口令: ${selectedPassword.code}`);
+    console.log(`成功分配口令: ${selectedPassword.password}`);
     
     res.json({
       success: true,
       message: '口令分配成功',
-      password: selectedPassword.code
+      password: selectedPassword.password
     });
     
   } catch (error) {
