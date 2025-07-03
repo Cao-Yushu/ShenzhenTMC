@@ -1,5 +1,4 @@
-// 批量添加口令到数据库的脚本
-// 使用方法：node add-passwords.js
+
 
 const { Pool } = require('pg');
 require('dotenv').config();
